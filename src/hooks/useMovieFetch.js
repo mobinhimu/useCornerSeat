@@ -16,7 +16,7 @@ function useMovieFetch(search) {
         setError("");
         setLoading(true);
         const res = await fetch(
-          `https://www.omdbapi.com/?s=${search}&apikey=${KEY}`,
+          `http://www.omdbapi.com/?s=${search}&apikey=${KEY}`,
           { signal: controller.signal }
         );
 
