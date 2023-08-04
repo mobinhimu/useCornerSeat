@@ -24,7 +24,7 @@ export default function MovieDetails({
       try {
         setLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?i=${movieID}&apikey=${KEY}`
+          `https://www.omdbapi.com/?i=${movieID}&apikey=${KEY}`
         );
         const data = await res.json();
         if (data.Response === "False") throw new Error("Movie Not Found");
