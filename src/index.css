@@ -1,0 +1,369 @@
+:root {
+  --color-primary: #6741d9;
+  --color-primary-light: #7950f2;
+  --color-text: #dee2e6;
+  --color-text-dark: #adb5bd;
+  --color-background-100: #343a40;
+  --color-background-500: #2b3035;
+  --color-background-900: #212529;
+  --color-red: #fa5252;
+  --color-red-dark: #e03131;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  color: var(--color-text);
+  background-color: var(--color-background-900);
+  padding: 2.4rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-primary);
+  padding: 12px;
+  border-radius: 6px;
+}
+nav h3 {
+  font-size: 2rem;
+}
+nav input {
+  padding: 6px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-primary-light);
+  color: var(--color-text);
+  font-size: 1.8rem;
+  /* box-shadow: 0 2.4rem 2.4rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px); */
+}
+nav p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+}
+
+/* movie details */
+.container {
+  border-radius: 4px;
+  background-color: var(--color-background-100);
+  margin-top: 16px;
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.search-result,
+.watched {
+  overflow: auto;
+  background-color: var(--color-background-500);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.movie {
+  cursor: pointer;
+  user-select: none;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  grid-column-gap: 8px;
+  border-bottom: 1px solid #343a40;
+  transition-duration: 0.3s;
+}
+
+.movie:hover {
+  background-color: var(--color-background-100);
+}
+
+.movie h3 {
+  font-size: 1.8rem;
+}
+.movie div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.movie div p {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+}
+.movie div p.first-item {
+  display: none;
+}
+
+.movie div p span {
+  font-size: 1.4rem;
+}
+.movie img {
+  width: 60px;
+  grid-row: 1 / -3;
+  border-radius: 2px;
+}
+
+.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--color-background-900);
+  color: var(--color-text);
+}
+
+.container-btn {
+  position: absolute;
+  z-index: 1;
+  left: 86%;
+  top: 6px;
+}
+
+/* watch details */
+.movie-details,
+.watched-movie {
+  background-color: var(--color-background-100);
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+  transition: left 2s;
+}
+.active-watch {
+  left: -100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background-color: var(--color-background-500);
+}
+.header img {
+  width: 40%;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 1.4rem;
+}
+
+.desc h1 {
+  font-size: 2.2rem;
+  letter-spacing: 1.4px;
+}
+
+.rating {
+  margin: 24px 16px;
+  padding: 16px;
+  background-color: var(--color-background-500);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.rating div span {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.add-review {
+  padding: 10px;
+  width: 90%;
+  border-radius: 50px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  background-color: var(--color-primary-light);
+}
+
+.director,
+.actors,
+.description {
+  margin: 12px 16px;
+  font-size: 1.4rem;
+}
+
+.description {
+  font-style: italic;
+}
+
+.director {
+  padding-bottom: 16px;
+}
+
+.watch-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 22px;
+  position: absolute;
+  width: 100%;
+}
+
+.back {
+  padding: 8px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.delete {
+  height: 18px;
+  cursor: pointer;
+}
+
+.watched li {
+  cursor: default;
+}
+
+.watched-summary {
+  display: grid;
+  gap: 12px;
+  grid-template-rows: 1fr 1fr;
+  background-color: var(--color-background-900);
+  border-top: 2px solid var(--color-background-500);
+  border-right: 2px solid var(--color-background-500);
+  border-left: 2px solid var(--color-background-500);
+}
+.watched-summary h3 {
+  grid-column: 1 / -1;
+}
+.watched-summary div {
+  grid-column: 1 / -1;
+}
+
+.watched-summary:hover {
+  background-color: var(--color-background-900);
+}
+
+.watched-summary div p span {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+.watched-summary div p:nth-child(2) {
+  display: none;
+}
+
+.message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.4rem;
+  letter-spacing: 1.8px;
+  position: absolute;
+  z-index: 111111111;
+  background-color: var(--color-background-100);
+}
+
+.responsive-class {
+  grid-template-columns: 1fr 1fr;
+}
+/* active classes */
+.zIndexClass {
+  z-index: 111;
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    flex-direction: row;
+  }
+  nav h3 {
+    font-size: 2.4rem;
+  }
+  nav p {
+    display: block;
+  }
+
+  nav input {
+    padding: 12px;
+  }
+
+  .container {
+    height: 80vh;
+  }
+
+  .search-result {
+    width: 90%;
+  }
+
+  .btn {
+    left: 80%;
+  }
+
+  .watched-summary div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .movie div p.first-item {
+    display: block;
+  }
+
+  .watched-summary div p:nth-child(2) {
+    display: block;
+  }
+}
+@media screen and (min-width: 992px) {
+  .search-result {
+    width: 60%;
+  }
+
+  .btn {
+    left: 90%;
+  }
+
+  .movie-details,
+  .watched-movie {
+    position: absolute;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .message {
+    width: 60%;
+  }
+
+  .message-right {
+    width: 40%;
+    right: 0;
+  }
+}
