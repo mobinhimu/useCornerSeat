@@ -32,9 +32,8 @@ function useMovieFetch(search) {
         setLoading(false);
       } catch (error) {
         if (error.message === "AbortError") return;
-
         setError(error.message);
-        console.log(error.message);
+        console.log(error);
       } finally {
         setLoading(false);
       }
